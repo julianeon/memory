@@ -39,8 +39,9 @@ const Ccard = (props) => {
 
     const beforeAfter = (didClick) => {
         if (didClick) {
-            
             return <Pica onClick={handleClick} style={{backgroundColor: props.color}}>{props.text}</Pica>            
+        } else if (props.on.includes(props.text)) {
+            return <Pica onClick={handleClick} style={{backgroundColor: props.color}}>{props.text}</Pica>                        
         } else {
             return <Pica onClick={handleClick} style={{backgroundColor: "gray"}}> </Pica>            
         }
@@ -58,26 +59,42 @@ const Ccard = (props) => {
     
 }
 
-
 function App() {
-  return (
+    const [items, setItems] = useState();
+    const [place, setPlace] = useState();
+    const [show, setShow] = useState([]);        
+
+    const setter = (arg,pos) => {
+        if ((items === arg) && (pos !== place)) {
+            setShow([...show, arg]);
+        }
+        setItems(arg);
+        setPlace(pos);        
+    }
+
+    return (
       <div className="App">
         <Container>
           <Row>
-            <Col><Ccard text={"pig"} color={"pink"}/></Col>
-            <Col><Ccard text={"dog"} color={"brown"}/></Col>
-            <Col><Ccard text={"frog"} color={"chartreuse"}/></Col>          
+            <Col onClick={() => setter("pig",1)}><Ccard on={show} text={"pig"} color={"pink"}/></Col>
+            <Col onClick={() => setter("dog",2)}><Ccard on={show}  text={"dog"} color={"brown"}/></Col>
+            <Col onClick={() => setter("frog",3)}><Ccard on={show} text={"frog"} color={"chartreuse"}/></Col>          
           </Row>
           <Row>
-            <Col><Ccard text={"frog"} color={"chartreuse"}/></Col>                      
-            <Col><Ccard text={"cat"} color={"orange"}/></Col>
-            <Col><Ccard text={"dog"} color={"brown"}/></Col>            
-        </Row>
+            <Col onClick={() => setter("frog",4)}><Ccard  on={show} text={"frog"} color={"chartreuse"}/></Col>                      
+            <Col onClick={() => setter("cat",5)}><Ccard  on={show} text={"cat"} color={"orange"}/></Col>
+            <Col onClick={() => setter("chick",6)}><Ccard  on={show} text={"chick"} color={"yellow"}/></Col>            
+          </Row>
           <Row>
-            <Col><Ccard text={"free"} color={"yellow"}/></Col>
-            <Col><Ccard text={"pig"} color={"pink"}/></Col>
-            <Col><Ccard text={"cat"} color={"orange"}/></Col>            
-        </Row>
+            <Col onClick={() => setter("dog",7)}><Ccard  on={show} text={"dog"} color={"brown"}/></Col>            
+            <Col onClick={() => setter("pig",8)}><Ccard  on={show} text={"pig"} color={"pink"}/></Col>
+            <Col onClick={() => setter("cat",9)}><Ccard  on={show} text={"cat"} color={"orange"}/></Col>            
+          </Row>
+          <Row>
+            <Col onClick={() => setter("fish",10)}><Ccard  on={show} text={"fish"} color={"aqua"}/></Col>
+            <Col onClick={() => setter("chick",11)}><Ccard  on={show} text={"chick"} color={"yellow"}/></Col>
+            <Col onClick={() => setter("fish",12)}><Ccard  on={show} text={"fish"} color={"aqua"}/></Col>            
+          </Row>
       </Container>
       </div>
   );
