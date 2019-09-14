@@ -1,68 +1,15 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Description
 
-## Available Scripts
+This is a memory app card game made using React and hooks, and the spread operator. I tried to find a very simple one online and couldn't - many of them were written before the advent of hooks. This one is about as minimally complicated as it can be, for its functionality.
 
-In the project directory, you can run:
+Basically it's got a state variable that remembers the last item chosen, and its position. It then checks, upon selection of an item: Is this the same name as the last one - and if so, is it in the same position? (You don't want that because then you could just click on the same item, twice).
 
-### `npm start`
+If it has the same name as the last chosen item and it's in a different position, it's a match - put it in the 'show' array. Whenever items are rendered, they're gray if they're not in that array, and shown permanently in their actual colors if they are in it.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The exception is the item you just clicked on, which appears for like 1 second.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+# Ideas for Improvement.
 
-### `npm test`
+It would be better if there was an array of choices - say, ["dog","cat","bird","fish"] - and the app randomly inserted them into the 3x4 display.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Also, it would be even better if instead of being represented by a name, there was instead an image showing the animal (an SVG so it would be responsive).
