@@ -32,7 +32,7 @@ So that item is shown from now on, whenever you do that - and so on, until every
 
 The exception to everything not in 'show' being gray is the item you just clicked on, which appears for 1 second. 
 
-That's the reason for the 3-branch test condition in the code. The conditions are: you clicked on it so show it for a second; it's supposed to be permanently shown; or, it's unknown and in gray.
+That's the reason for the 3-branch test condition in the code. The conditions are: you clicked on it so show it for a second; it's "matched" so permanently shown; or, it's unknown and in gray.
 
 ## Ideas for Improvement
 
